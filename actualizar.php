@@ -1,0 +1,200 @@
+<?php
+
+    include("conexion.php");
+    $con=conectar();
+
+    $Cli_nombre=$_GET['id'];
+
+    $sql=" SELECT * FROM clientes WHERE Cli_nombre='$Cli_nombre'";
+    $query=mysqli_query($con,$sql);
+
+    $row=mysqli_fetch_array($query);
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" href="images/PANADERIA OLIMPICA 2.ico">
+    <title>PANADERIA OLIMPICA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/942285f14f.js" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-7597263790960527" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body class="goto-here">
+    <div class="py-1 bg-primary">
+        <div class="container"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar bg_dark ftco-navbar-light" id="fto-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+            <img src="images/PANADERIA OLIMPICA.jpg" width="60" height="60" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	    </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="shop.html" class="nav-link">Productos</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">Nosotros</a></li>
+                    <li class="nav-item"><a href="frm_factura.html" class="nav-link">facturas</a></li>
+                    <li class="nav-item"><a href="contact.php" class="nav-link">Clientes</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+
+    <div class="hero-wrap hero-bread" style="background-image: url('images/b5.jpg');">
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">INICIO</a></span> <span>Contacto</span></p>
+                    <h1 class="mb-0 bread">CONTACTANOS</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ftco-section contact-section bg-light">
+        <div class="container">
+            <div class="row ">
+                <div class="container justify-content-start ">
+                    <form action="update.php" method="POST" class="bg-white p-5 contact-form">
+                        <h2> ACTUALIZAR CLIENTES </h2>
+                        <h5> Ingrese los siguientes datos a actualizar: </h5>
+                        <div class="form-group">
+                            <input type="hidden" class=" form-control " name="nombre" value="<?php  echo $row['Cli_nombre']?>" >
+                        </div>
+                        <div class="form-group ">
+                            <label>Telefono</label>
+                            <input type="text "  class="form-control " name="telefono" placeholder="Telefono" value="<?php echo $row['Cli_telefono']?>" >
+                        </div>
+                        <div class="form-group ">
+                            <label>Barrio</label>
+                            <input type="text "  class="form-control " name="barrio"  placeholder="Barrio " value="<?php echo $row['Cli_barrio']?>">
+                        </div>
+                        <div class="form-group ">
+                            <label>Ciudad</label>
+                            <input type="text " class="form-control " name="ciudad"  placeholder="Ciudad " value="<?php echo $row['Cli_ciudad']?>">
+                        </div>
+                        <div class="form-group ">
+                            <label>Numero residencial</label>
+                            <input type="text " name="numeroresidencial" class="form-control " placeholder="Numero residencial " value="<?php echo $row['Cli_numeroresidencial']?>">
+                            
+                        </div>
+                        <input type="submit"  class="btn btn-primary btn-block" value="Actualizar">
+                    </form>
+                </div>
+            </div>
+    </section>
+
+       <!-- Follow -->
+       <section class="social">
+        <p class="heading"> SIGUENOS EN NUETRAS REDES SOCIALES </p>
+        <div class="links">
+          <a href="https://facebook.com">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://web.whatsapp.com">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </section><br/>
+
+    <footer class="ftco-footer ftco-section ">
+        <div class="container ">
+            <div class="row ">
+                <div class="mouse ">
+                    <a href="# " class="mouse-icon ">
+                        <div class="mouse-wheel "><span class="ion-ios-arrow-up "></span></div>
+                    </a>
+                </div>
+            </div>
+            <div class="row mb-5 ">
+                <div class="col-md ">
+                    <div class="ftco-footer-widget mb-4 ">
+                    <a href="index.html" class="py-2 d-block ">PANADERIA OLIMPICA</a>
+                    </div>
+                </div>
+                <div class="col-md ">
+                    <div class="ftco-footer-widget mb-4 ml-md-5 ">
+                        <h2 class="ftco-heading-2 ">Menu</h2>
+                        <ul class="list-unstyled ">
+                            <li><a href="index.html" class="py-2 d-block ">Inicio</a></li>
+                            <li><a href="shop.html" class="py-2 d-block ">Productos</a></li>
+                    <li><a href="about.html" class="py-2 d-block ">nosotros</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md ">
+                    <div class="ftco-footer-widget mb-4 ">
+                        <div class="block-23 mb-3 ">
+                            <ul>
+                                <li><a href="https://www.google.com/maps/place/Cl.+63c+%236,+Bogotá/@4.6704075,-74.0990401,17z/data=!3m1!4b1!4m6!3m5!1s0x8e3f9b0bb9dd7b97:0xd71eee3013525214!8m2!3d4.6704022!4d-74.0964598!16s%2Fg%2F11hyc837y3?hl=es&entry=ttu"><span class="icon icon-map-marker"></span><span class="text">Cl. 63c #6, Bogotá</span></a></li><br/>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+57 3115634497</span></a></li><br/>
+                                <li><a href="https://mail.google.com/"><span class="icon icon-envelope"></span><span class="text">panaderiaolimpica@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader " class="show fullscreen "><svg class="circular " width="48px " height="48px "><circle class="path-bg " cx="24 " cy="24 " r="22 " fill="none " stroke-width="4 " stroke="#eeeeee "/><circle class="path " cx="24 " cy="24 " r="22
+                                " fill="none " stroke-width="4 " stroke-miterlimit="10 " stroke="#F96D00 "/></svg></div>
+
+
+    <script src="js/jquery.min.js "></script>
+    <script src="js/jquery-migrate-3.0.1.min.js "></script>
+    <script src="js/popper.min.js "></script>
+    <script src="js/bootstrap.min.js "></script>
+    <script src="js/jquery.easing.1.3.js "></script>
+    <script src="js/jquery.waypoints.min.js "></script>
+    <script src="js/jquery.stellar.min.js "></script>
+    <script src="js/owl.carousel.min.js "></script>
+    <script src="js/jquery.magnific-popup.min.js "></script>
+    <script src="js/aos.js "></script>
+    <script src="js/jquery.animateNumber.min.js "></script>
+    <script src="js/bootstrap-datepicker.js "></script>
+    <script src="js/scrollax.min.js "></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false "></script>
+    <script src="js/google-map.js "></script>
+    <script src="js/main.js "></script>
+
+</body>
